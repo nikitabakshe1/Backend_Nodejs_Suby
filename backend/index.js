@@ -6,23 +6,20 @@ const bodyParser = require('body-parser');
 const firmRoutes = require('./routes/firmRoutes');
 const productRoutes = require('./routes/productRoutes');
 const cors = require('cors');
-const path = require('path')
+const path = require('path');
 
 const app = express();
-const PORT = 4000;
-const router = express.Router();
+const PORT = process.env.PORT || 4000;
 
 dotEnv.config();
 
 app.use(bodyParser.json());
 
-/* ADD THIS LINE */
 app.use('/uploads', express.static('uploads'));
 
 app.use('/vendor', vendorRoutes);
 app.use('/firm', firmRoutes);
-app.use('/product',productRoutes);
-
+app.use('/product', productRoutes);
 
 app.get('/home', (req, res) => {
     res.send("<h1>Welcome to SUBY</h1>");
