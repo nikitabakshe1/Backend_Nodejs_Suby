@@ -21,7 +21,7 @@ app.use('/vendor', vendorRoutes);
 app.use('/firm', firmRoutes);
 app.use('/product', productRoutes);
 
-app.get('/home', (req, res) => {
+app.get('/', (req, res) => {
     res.send("<h1>Welcome to SUBY</h1>");
 });
 
