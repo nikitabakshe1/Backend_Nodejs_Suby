@@ -24,7 +24,9 @@ app.use('/product', productRoutes);
 app.get('/', (req, res) => {
     res.send("<h1>Welcome to SUBY</h1>");
 });
-
+app.get("/", (req, res) => {
+    res.send("Backend is running successfully");
+});
 mongoose.connect(process.env.MONGO_URI)
 .then(() => {
     console.log("MongoDB connected successfully!");
